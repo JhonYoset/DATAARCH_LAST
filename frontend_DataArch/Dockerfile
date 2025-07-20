@@ -1,4 +1,4 @@
-# Dockerfile para Backend (NestJS)
+# Dockerfile para Frontend (React + Vite)
 FROM node:18-alpine
 
 # Establecer directorio de trabajo
@@ -14,7 +14,7 @@ RUN npm ci
 COPY . .
 
 # Exponer puerto
-EXPOSE 3001
+EXPOSE 3000
 
 # Comando por defecto (se sobrescribe en docker-compose)
-CMD ["npm", "run", "start:dev"]
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "3000"]
